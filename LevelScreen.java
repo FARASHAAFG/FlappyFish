@@ -24,14 +24,34 @@ public class LevelScreen extends World
      */
     private void prepare()
     {
-        Seaweed seaweed =  new  Seaweed();
-        addObject(seaweed, 347, 349);
         GoldF goldF =  new  GoldF();
-        addObject(goldF, 113, 234);
-        seaweed.setLocation(334, 374);
-        seaweed.setLocation(319, 411);
-        seaweed.setLocation(556, 413);
-        seaweed.setLocation(547, 406);
-        seaweed.setLocation(546, 361);
+        addObject(goldF, 108, 228);
+        Seaweed seaweed =  new  Seaweed();
+        addObject(seaweed, 552, 358);
+        Seaweed seaweed2 =  new  Seaweed();
+        addObject(seaweed2, 461, 413);
+        Seaweed seaweed3 =  new  Seaweed();
+        addObject(seaweed3, 351, 376);
+        Seaweed seaweed4 =  new  Seaweed();
+        addObject(seaweed4, 228, 439);
+        Seaweed seaweed5 =  new  Seaweed();
+        addObject(seaweed5, 112, 394);
+        Seaweed seaweed6 =  new  Seaweed();
+        addObject(seaweed6, 13, 439);
+        SmallWeed smallWeed =  new  SmallWeed();
+        addObject(smallWeed, 398, 438);
+        SmallWeed smallWeed2 =  new  SmallWeed();
+        addObject(smallWeed2, 271, 447);
+        SmallWeed smallWeed3 =  new  SmallWeed();
+        addObject(smallWeed3, 171, 431);
+        seaweed6.setLocation(45, 433);
+        SmallWeed smallWeed4 =  new  SmallWeed();
+        addObject(smallWeed4, 45, 433);
+        seaweed2.setLocation(495, 407);
+        SmallWeed smallWeed5 =  new  SmallWeed();
+        addObject(smallWeed5, 495, 407);
+        seaweed.setLocation(553, 414);
+        seaweed3.setLocation(344, 422);
+        seaweed5.setLocation(120, 417);
     }
 }

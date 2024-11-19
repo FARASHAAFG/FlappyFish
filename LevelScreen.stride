@@ -25,15 +25,35 @@ That is: create the initial objects and add them to the world.</javadoc>
             <params/>
             <throws/>
             <body>
-                <variable type="Seaweed" type-java="Seaweed" name="seaweed" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
-                <call expression="addObject(seaweed,347,349)" expression-java="addObject(seaweed, 347, 349)" enable="true"/>
                 <variable type="GoldF" type-java="GoldF" name="goldF" value="new GoldF()" value-java=" new GoldF()" enable="true"/>
-                <call expression="addObject(goldF,113,234)" expression-java="addObject(goldF, 113, 234)" enable="true"/>
-                <call expression="seaweed.setLocation(334,374)" expression-java="seaweed.setLocation(334, 374)" enable="true"/>
-                <call expression="seaweed.setLocation(319,411)" expression-java="seaweed.setLocation(319, 411)" enable="true"/>
-                <call expression="seaweed.setLocation(556,413)" expression-java="seaweed.setLocation(556, 413)" enable="true"/>
-                <call expression="seaweed.setLocation(547,406)" expression-java="seaweed.setLocation(547, 406)" enable="true"/>
-                <call expression="seaweed.setLocation(546,361)" expression-java="seaweed.setLocation(546, 361)" enable="true"/>
+                <call expression="addObject(goldF,108,228)" expression-java="addObject(goldF, 108, 228)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed,552,358)" expression-java="addObject(seaweed, 552, 358)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed2" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed2,461,413)" expression-java="addObject(seaweed2, 461, 413)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed3" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed3,351,376)" expression-java="addObject(seaweed3, 351, 376)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed4" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed4,228,439)" expression-java="addObject(seaweed4, 228, 439)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed5" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed5,112,394)" expression-java="addObject(seaweed5, 112, 394)" enable="true"/>
+                <variable type="Seaweed" type-java="Seaweed" name="seaweed6" value="new Seaweed()" value-java=" new Seaweed()" enable="true"/>
+                <call expression="addObject(seaweed6,13,439)" expression-java="addObject(seaweed6, 13, 439)" enable="true"/>
+                <variable type="SmallWeed" type-java="SmallWeed" name="smallWeed" value="new SmallWeed()" value-java=" new SmallWeed()" enable="true"/>
+                <call expression="addObject(smallWeed,398,438)" expression-java="addObject(smallWeed, 398, 438)" enable="true"/>
+                <variable type="SmallWeed" type-java="SmallWeed" name="smallWeed2" value="new SmallWeed()" value-java=" new SmallWeed()" enable="true"/>
+                <call expression="addObject(smallWeed2,271,447)" expression-java="addObject(smallWeed2, 271, 447)" enable="true"/>
+                <variable type="SmallWeed" type-java="SmallWeed" name="smallWeed3" value="new SmallWeed()" value-java=" new SmallWeed()" enable="true"/>
+                <call expression="addObject(smallWeed3,171,431)" expression-java="addObject(smallWeed3, 171, 431)" enable="true"/>
+                <call expression="seaweed6.setLocation(45,433)" expression-java="seaweed6.setLocation(45, 433)" enable="true"/>
+                <variable type="SmallWeed" type-java="SmallWeed" name="smallWeed4" value="new SmallWeed()" value-java=" new SmallWeed()" enable="true"/>
+                <call expression="addObject(smallWeed4,45,433)" expression-java="addObject(smallWeed4, 45, 433)" enable="true"/>
+                <call expression="seaweed2.setLocation(495,407)" expression-java="seaweed2.setLocation(495, 407)" enable="true"/>
+                <variable type="SmallWeed" type-java="SmallWeed" name="smallWeed5" value="new SmallWeed()" value-java=" new SmallWeed()" enable="true"/>
+                <call expression="addObject(smallWeed5,495,407)" expression-java="addObject(smallWeed5, 495, 407)" enable="true"/>
+                <call expression="seaweed.setLocation(553,414)" expression-java="seaweed.setLocation(553, 414)" enable="true"/>
+                <call expression="seaweed3.setLocation(344,422)" expression-java="seaweed3.setLocation(344, 422)" enable="true"/>
+                <call expression="seaweed5.setLocation(120,417)" expression-java="seaweed5.setLocation(120, 417)" enable="true"/>
             </body>
         </method>
     </methods>
