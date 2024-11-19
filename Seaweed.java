@@ -15,6 +15,7 @@ public class Seaweed extends Actor
     public void act()
     {
         move();
+        eat();
     }
 
     /**
@@ -24,6 +25,20 @@ public class Seaweed extends Actor
     {
         setLocation(getX() - 1, getY());
         if (getX() == 0) {
+            setLocation(600, getY());
+        }
+    }
+
+    /**
+     * 
+     */
+    public void eat()
+    {
+        Actor fish = getOneIntersectingObject(GoldF.class);
+        if (fish != null) {
+            World world = getWorld();
+            world.removeObject(fish);
+            /* Greenfoot.playSound("gameOverArcade.mp3");*/
         }
     }
 }

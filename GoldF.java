@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -8,25 +7,38 @@ import greenfoot.*;
  */
 public class GoldF extends Actor
 {
+    private int size;
 
     /**
      * Act - do whatever the GoldF wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        move();
+        if (getY() != 145) {
+            move();
+        }
+
     }
 
+    
     /**
      * 
      */
     public void move()
     {
-        if (Greenfoot.isKeyDown("up")) {
-            setLocation(getX(), getY() - 1);
+        if (Greenfoot.isKeyDown("up") && getY() > 140) {
+            setLocation(getX(), getY() - 3);
         }
         if (Greenfoot.isKeyDown("down")) {
-            setLocation(getX(), getY() + 1);
+            setLocation(getX(), getY() + 3);
         }
     }
+    
+    public void setSize(int size) 
+    {
+        this.size = size;
+        GreenfootImage image = getImage();
+        image.scale(size, size);
+    }
+
 }

@@ -15,6 +15,7 @@
             <throws/>
             <body>
                 <call expression="move()" expression-java="move()" enable="true"/>
+                <call expression="eat()" expression-java="eat()" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="move" enable="true">
@@ -24,7 +25,24 @@
             <body>
                 <call expression="setLocation(getX()-1,getY())" expression-java="setLocation(getX() - 1, getY())" enable="true"/>
                 <if condition="getX()==0" condition-java="getX() == 0" enable="true">
-                    <ifStatements/>
+                    <ifStatements>
+                        <call expression="setLocation(600,getY())" expression-java="setLocation(600, getY())" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="eat" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="Actor" type-java="Actor" name="fish" value="getOneIntersectingObject(GoldF.class)" value-java="getOneIntersectingObject(GoldF.class)" enable="true"/>
+                <if condition="fish!=null" condition-java="fish != null" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="world" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <call expression="world.removeObject(fish)" expression-java="world.removeObject(fish)" enable="true"/>
+                        <comment xml:space="preserve">Greenfoot.playSound("gameOverArcade.mp3");</comment>
+                    </ifStatements>
                 </if>
             </body>
         </method>
