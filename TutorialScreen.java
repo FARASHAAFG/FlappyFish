@@ -6,14 +6,14 @@ import greenfoot.*;
 /**
  * 
  */
-public class TitleScreen extends World
+public class TutorialScreen extends World
 {
 
     /**
-     * Constructor for objects of class TitleScreen.
+     * Constructor for objects of class TutorialScreen.
      */
-    public TitleScreen()
+    public TutorialScreen()
     {
-        super(600, 450, 1);
+        super(600, 400, 1);
     }
 }
