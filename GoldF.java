@@ -34,6 +34,7 @@ public class GoldF extends Actor
         }
     }
     
+    
     public void setSize(int size) 
     {
         this.size = size;
