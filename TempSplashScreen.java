@@ -1,0 +1,28 @@
+import lang.stride.*;
+import java.util.*;
+import greenfoot.*;
+
+/**
+ * 
+ */
+public class TempSplashScreen extends World {
+    private long startTime;
+
+    public TempSplashScreen() {
+        super(600, 450, 1);  // Set the size of the world
+        startTime = System.currentTimeMillis();  // Record the start time
+    }
+
+    public void act() {
+        // Check if 3000 milliseconds (3 seconds) have passed
+        if (System.currentTimeMillis() - startTime >= 3500) {
+            transitionToWorld(new StartScreen());  // Transition to StartScreen
+        }
+    }
+    
+    public void transitionToWorld(World newWorld) {
+        Greenfoot.setWorld(newWorld);  // Transition to the new world
+    }
+}
+    
+
