@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -14,5 +13,17 @@ public class PlayButton extends Button
      */
     public void act()
     {
+        if (Greenfoot.mouseMoved(this)) {
+            setImage("PlayButtonHighlighted.png");
+        }
+        if (Greenfoot.mouseMoved(getWorld()))
+        {
+            setImage("PlayButton.png");
+        }
+        if (Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(new LevelScreen()); 
+
+        }
     }
 }

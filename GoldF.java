@@ -14,9 +14,9 @@ public class GoldF extends Actor
      */
     public void act()
     {
-        if (getY() != 145) {
-            move();
-        }
+        
+        move();
+        
 
     }
 
