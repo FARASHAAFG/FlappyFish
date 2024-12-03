@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=TempSplashScreen
+comment0.target=SplashScreen
 comment0.text=\r\n\ \r\n
 comment1.params=
-comment1.target=TempSplashScreen()
+comment1.target=SplashScreen()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=newWorld
