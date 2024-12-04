@@ -24,7 +24,6 @@ public class GoldF extends Actor
         
         move();
         eatCoin();
-        //checkVlobsters();
     }
 
     
@@ -54,26 +53,6 @@ public class GoldF extends Actor
             World world = getWorld();
             world.removeObject(coin);
             Greenfoot.playSound("completetask_0.mp3");
-        }
-    }
-    
-    private void checkVlobsters(){
-        goalText = new GreenfootImage(passedVlobsters + "/5 vlobsters", 35, Color.BLACK, new Color(0,0,0,0));
-        getWorld().getBackground().drawImage(goalText, 120, 6);
-        
-        List<Vlobster> vlobsters = getWorld().getObjects(Vlobster.class);
-        for (Vlobster vlobster : vlobsters) {
-            if (vlobster.getX() <= 0) { 
-                passedVlobsters++;
-                getWorld().removeObject(vlobster);
-            }
-        }
-        
-        goalText = new GreenfootImage(passedVlobsters + "/5 vlobsters", 35, Color.BLACK, new Color(0,0,0,0));
-        getWorld().getBackground().drawImage(goalText, 120, 6);
-        
-        if (!goalAchieved && passedVlobsters >=5){
-            goalAchieved = true;
         }
     }
 
