@@ -24,12 +24,16 @@ public class Vlobster extends Actor
     public void move(){
         setLocation(getX() - speed, getY());
     }
+    public void transitionToWorld(World newWorld) {
+        Greenfoot.setWorld(newWorld);
+    }
     public void eat()
     {
         Actor fish = getOneIntersectingObject(GoldF.class);
         if (fish != null) {
             World world = getWorld();
             world.removeObject(fish);
+            transitionToWorld(new GameOver());
             /* Greenfoot.playSound("gameOverArcade.mp3");*/
         }
     }
