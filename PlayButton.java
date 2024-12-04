@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class PlayButton extends Button
 {
-    World startScreen = getWorld();
     /**
      * Act - do whatever the PlayButton wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -33,7 +32,7 @@ public class PlayButton extends Button
                 startScreen.stopMusic();
             }
             
-            Greenfoot.setWorld(new LevelScreen()); 
+            Greenfoot.setWorld(new Level1Screen()); 
             Greenfoot.playSound("vgmenuselect.wav");
         }
     }

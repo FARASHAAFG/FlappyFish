@@ -44,7 +44,6 @@ public class Shark extends Actor
     }
     public void remove(){
           if (isAtEdge()){
-        //World world = getWorld();
         getWorld().removeObject(this);
     }
     }
