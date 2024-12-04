@@ -27,7 +27,7 @@ public class Level1Screen extends World
     {
         super(600,450,1);
         prepare();
-        //sound.play();
+        sound.play();
     }
     public void act(){
         Color yellow = new Color(66,227,255);
