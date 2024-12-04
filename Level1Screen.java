@@ -2,9 +2,6 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
 public class Level1Screen extends World
 {
     //GreenfootSound sound = new GreenfootSound("leap.WAV");
@@ -14,20 +11,18 @@ public class Level1Screen extends World
     private long coinLastSpawnTime = System.currentTimeMillis();
     private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
     
+    
     private boolean goalAchieved = false;
     
     private GreenfootImage goalText;
     private GreenfootImage checkmark;
     
     private int passedVlobsters = 0;
-    /**
-     * Constructor for objects of class Game.
-     */
     public Level1Screen()
     {
         super(600,450,1);
         prepare();
-        sound.play();
+        //sound.play();
     }
     public void act(){
         Color yellow = new Color(66,227,255);
@@ -160,7 +155,6 @@ public class Level1Screen extends World
         long currentTime = System.currentTimeMillis();
         if (currentTime - coinLastSpawnTime >= CoinSpawnDelay) { 
             addObject(new Coin(), 600, Greenfoot.getRandomNumber(200) + 150);
-            
             coinLastSpawnTime = currentTime;
             CoinSpawnDelay = CoinSpawnDelay;
         }
