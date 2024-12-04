@@ -7,7 +7,7 @@ import greenfoot.*;
  */
 public class Level2Screen extends World
 {
-    GreenfootSound sound = new GreenfootSound("leap.WAV");
+    //GreenfootSound sound = new GreenfootSound("leap.WAV");
     /**
      * Constructor for objects of class Game.
      */
