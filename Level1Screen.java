@@ -14,11 +14,12 @@ public class Level1Screen extends World
     private long coinLastSpawnTime = System.currentTimeMillis();
     private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
     
-    private int passedVlobsters = 0;
     private boolean goalAchieved = false;
     
     private GreenfootImage goalText;
     private GreenfootImage checkmark;
+    
+    private int passedVlobsters = 0;
     /**
      * Constructor for objects of class Game.
      */
@@ -29,6 +30,30 @@ public class Level1Screen extends World
         //sound.play();
     }
     public void act(){
+        Color yellow = new Color(66,227,255);
+        getBackground().setColor(yellow);
+        getBackground().fillRect(0, 0, 300, 45);
+        getBackground().setColor(Color.BLACK);
+        getBackground().setFont(new Font(32));
+        getBackground().drawString(passedVlobsters + "/5 vlobsters", 120,35);
+        
+        //goalText = new GreenfootImage(passedVlobsters + "/5 vlobsters", 35, Color.BLACK, new Color(0,0,0,0));
+        //getBackground().drawImage(goalText, 120, 6);
+        //goalText.clear();
+        List<Vlobster> vlobsters = getObjects(Vlobster.class);
+        for (Vlobster vlobster : vlobsters) {
+            if (vlobster.getX() <= 0) { 
+                passedVlobsters++;
+                removeObject(vlobster);
+            }
+        }
+    
+        
+        if (!goalAchieved && passedVlobsters >= 5) {
+            goalAchieved = true;
+            showCheckmark();
+        }
+        
         spawnVlobster();
         spawnCoin();
         exit();
@@ -141,14 +166,17 @@ public class Level1Screen extends World
         }
     }
     
-    private void displayGoal() {
-        goalText = new GreenfootImage("Goal: Avoid 5 Vlobsters!");
-        getBackground().drawImage(goalText, 10, 10);
-    }
     public void exit(){
         if(Greenfoot.isKeyDown("escape")){
             Greenfoot.setWorld(new StartScreen());
             //sound.stop();
         }
     }
+    
+    
+    private void showCheckmark() {
+        checkmark = new GreenfootImage("Checkmark.png"); // Ensure you have this image in your project
+        getBackground().drawImage(checkmark, getWidth() - checkmark.getWidth() - 10, 10);
+    }
+    
 }

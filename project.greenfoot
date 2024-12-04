@@ -17,6 +17,9 @@ class.SmallWeed.image=Seaweed2.PNG
 class.SplashScreen.image=Splash\ Screen\ (1).jpg
 class.StartScreen.image=StartScreen.png
 class.SuperSmallWeed.image=SuperSmallWeed.png
+class.Tutorial1.image=Tutorial1.png
+class.Tutorial2.image=Tutorial2.png
+class.Tutorial3.image=Tutorial3.png
 class.TutorialButton.image=TutorialButton.png
 class.TutorialScreen.image=background.png
 class.Vlobster.image=Vlobster.png
@@ -125,6 +128,7 @@ dependency8.type=UsesDependency
 dependency9.from=TutorialScreen
 dependency9.to=SuperSmallWeed
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
@@ -132,6 +136,23 @@ editor.fx.0.y=0
 height=734
 package.numDependencies=35
 package.numTargets=26
+=======
+editor.fx.0.height=677
+editor.fx.0.width=816
+editor.fx.0.x=806
+editor.fx.0.y=265
+editor.fx.1.height=739
+editor.fx.1.width=816
+editor.fx.1.x=1044
+editor.fx.1.y=237
+editor.fx.2.height=739
+editor.fx.2.width=973
+editor.fx.2.x=131
+editor.fx.2.y=227
+height=1056
+package.numDependencies=35
+package.numTargets=28
+>>>>>>> main
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -203,21 +224,29 @@ target16.width=120
 target16.x=0
 target16.y=0
 target17.height=70
-target17.name=Level3Screen
+target17.name=Tutorial1
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=120
 target17.x=0
 target17.y=0
 target18.height=70
+<<<<<<< HEAD
 target18.name=GameOver
+=======
+target18.name=Level3Screen
+>>>>>>> main
 target18.showInterface=false
 target18.type=ClassTarget
 target18.width=120
 target18.x=0
 target18.y=0
 target19.height=70
+<<<<<<< HEAD
 target19.name=Fisherman
+=======
+target19.name=Tutorial2
+>>>>>>> main
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=120
@@ -231,54 +260,99 @@ target2.width=120
 target2.x=0
 target2.y=0
 target20.height=70
+<<<<<<< HEAD
 target20.name=StartScreen
+=======
+target20.name=Tutorial3
+>>>>>>> main
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=120
 target20.x=0
 target20.y=0
 target21.height=70
+<<<<<<< HEAD
 target21.name=Score
+=======
+target21.name=Fisherman
+>>>>>>> main
 target21.showInterface=false
 target21.type=ClassTarget
 target21.width=120
 target21.x=0
 target21.y=0
 target22.height=70
+<<<<<<< HEAD
 target22.name=Checkmark2
+=======
+target22.name=StartScreen
+>>>>>>> main
 target22.showInterface=false
 target22.type=ClassTarget
 target22.width=120
 target22.x=0
 target22.y=0
 target23.height=70
+<<<<<<< HEAD
 target23.name=Checkmark1
+=======
+target23.name=Score
+>>>>>>> main
 target23.showInterface=false
 target23.type=ClassTarget
 target23.width=120
 target23.x=0
 target23.y=0
 target24.height=70
+<<<<<<< HEAD
 target24.name=Level1Screen
+=======
+target24.name=Checkmark2
+>>>>>>> main
 target24.showInterface=false
 target24.type=ClassTarget
 target24.width=120
 target24.x=0
 target24.y=0
 target25.height=70
+<<<<<<< HEAD
 target25.name=Checkmark3
+=======
+target25.name=Checkmark1
+>>>>>>> main
 target25.showInterface=false
 target25.type=ClassTarget
 target25.width=120
 target25.x=0
 target25.y=0
 target26.height=70
+<<<<<<< HEAD
 target26.name=Vlobster
+=======
+target26.name=Level1Screen
+>>>>>>> main
 target26.showInterface=false
 target26.type=ClassTarget
 target26.width=120
 target26.x=0
 target26.y=0
+<<<<<<< HEAD
+=======
+target27.height=70
+target27.name=Checkmark3
+target27.showInterface=false
+target27.type=ClassTarget
+target27.width=120
+target27.x=0
+target27.y=0
+target28.height=70
+target28.name=Vlobster
+target28.showInterface=false
+target28.type=ClassTarget
+target28.width=120
+target28.x=0
+target28.y=0
+>>>>>>> main
 target3.height=70
 target3.name=Shark
 target3.showInterface=false
@@ -329,7 +403,11 @@ target9.width=120
 target9.x=0
 target9.y=0
 version=3.1.0
+<<<<<<< HEAD
 width=1294
+=======
+width=1936
+>>>>>>> main
 world.lastInstantiated=SplashScreen
 xPosition=0
 yPosition=0
