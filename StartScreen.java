@@ -7,7 +7,7 @@ import greenfoot.*;
  */
 public class StartScreen extends World
 {
-    //GreenfootSound sound = new GreenfootSound("river_mastered.mp3");
+    GreenfootSound sound = new GreenfootSound("river_mastered.mp3");
     /**
      * Constructor for objects of class StartScreen.
      */
@@ -17,7 +17,7 @@ public class StartScreen extends World
         GreenfootImage bg = new GreenfootImage("StartScreen.png");
         setBackground(bg);
         prepare();
-        //sound.play();
+        sound.play();
     }
     
     /**
@@ -37,6 +37,6 @@ public class StartScreen extends World
     
     }
     public void stopMusic(){
-        //sound.stop();
+        sound.stop();
     }
 }

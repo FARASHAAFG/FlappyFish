@@ -7,17 +7,16 @@ import greenfoot.*;
  */
 public class Level1Screen extends World
 {
-    //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    GreenfootSound sound = new GreenfootSound("leap.WAV");
     private long vlobsterLastSpawnTime = System.currentTimeMillis();
     private int vlobsterSpawnDelay = 3000 + Greenfoot.getRandomNumber(4000);
     
     private long coinLastSpawnTime = System.currentTimeMillis();
     private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
     
-    private boolean goalAchieved = false;
+    public boolean goalAchieved = false;
     
     private GreenfootImage goalText;
-    private GreenfootImage checkmark;
     
     private int passedVlobsters = 0;
     /**
@@ -51,11 +50,14 @@ public class Level1Screen extends World
         
         if (!goalAchieved && passedVlobsters >= 5) {
             goalAchieved = true;
-            showCheckmark();
+            levelCleared();
         }
         
-        spawnVlobster();
-        spawnCoin();
+        if (!goalAchieved) {
+            spawnVlobster();
+            spawnCoin();
+        }
+        
         exit();
     }
 
@@ -145,6 +147,7 @@ public class Level1Screen extends World
         addObject(seaweed, 495, 394);
         Level1Goal goalText = new Level1Goal();
         addObject(goalText, 60, 23);
+
     }
     public void spawnVlobster() {
         long currentTime = System.currentTimeMillis();
@@ -169,14 +172,14 @@ public class Level1Screen extends World
     public void exit(){
         if(Greenfoot.isKeyDown("escape")){
             Greenfoot.setWorld(new StartScreen());
-            //sound.stop();
+            sound.stop();
         }
     }
     
     
-    private void showCheckmark() {
-        checkmark = new GreenfootImage("Checkmark.png"); // Ensure you have this image in your project
-        getBackground().drawImage(checkmark, getWidth() - checkmark.getWidth() - 10, 10);
+    private void levelCleared() {
+        addObject(new LevelCleared(), 300, 225);
+        addObject(new NextLevelButton(),293, 326 );
     }
     
 }

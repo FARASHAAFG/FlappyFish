@@ -9,6 +9,9 @@ public class Vlobster extends Actor
 {
     private long time = System.currentTimeMillis();
     private int speed = Greenfoot.getRandomNumber(3)+1;
+    
+    Level1Screen world = (Level1Screen) getWorld();
+    
     public Vlobster(){
         turn(Greenfoot.getRandomNumber(360));
     }

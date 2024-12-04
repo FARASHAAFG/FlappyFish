@@ -38,7 +38,7 @@ public class TutorialButton extends Button
         {
             if (getWorld() instanceof StartScreen) {
                 StartScreen startScreen = (StartScreen) getWorld();
-                //startScreen.stopMusic();
+                startScreen.stopMusic();
             }
             Greenfoot.playSound("vgmenuselect (1).wav");
             Greenfoot.setWorld(new TutorialScreen()); 
