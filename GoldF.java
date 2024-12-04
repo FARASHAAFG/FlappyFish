@@ -26,10 +26,10 @@ public class GoldF extends Actor
      */
     public void move()
     {
-        if (Greenfoot.isKeyDown("up") && getY() > 140) {
+        if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")&& getY() > 140) {
             setLocation(getX(), getY() - 3);
         }
-        if (Greenfoot.isKeyDown("down")) {
+        if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + 3);
         }
     }

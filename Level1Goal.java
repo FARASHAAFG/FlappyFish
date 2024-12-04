@@ -6,11 +6,11 @@ import greenfoot.*;
 /**
  * 
  */
-public class LevelGoal extends UI
+public class Level1Goal extends UI
 {
 
     /**
-     * Act - do whatever the LevelGoal wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the Level1Goal wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {

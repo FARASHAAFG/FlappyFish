@@ -13,6 +13,12 @@ public class Level1Screen extends World
     
     private long coinLastSpawnTime = System.currentTimeMillis();
     private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
+    
+    private int passedVlobsters = 0;
+    private boolean goalAchieved = false;
+    
+    private GreenfootImage goalText;
+    private GreenfootImage checkmark;
     /**
      * Constructor for objects of class Game.
      */
@@ -25,6 +31,7 @@ public class Level1Screen extends World
     public void act(){
         spawnVlobster();
         spawnCoin();
+        exit();
     }
 
     /**
@@ -111,6 +118,8 @@ public class Level1Screen extends World
         superSmallWeed31.setLocation(592, 422);
         Seaweed seaweed =  new  Seaweed();
         addObject(seaweed, 495, 394);
+        Level1Goal goalText = new Level1Goal();
+        addObject(goalText, 60, 23);
     }
     public void spawnVlobster() {
         long currentTime = System.currentTimeMillis();
@@ -131,5 +140,15 @@ public class Level1Screen extends World
             CoinSpawnDelay = CoinSpawnDelay;
         }
     }
-
+    
+    private void displayGoal() {
+        goalText = new GreenfootImage("Goal: Avoid 5 Vlobsters!");
+        getBackground().drawImage(goalText, 10, 10);
+    }
+    public void exit(){
+        if(Greenfoot.isKeyDown("escape")){
+            Greenfoot.setWorld(new StartScreen());
+            sound.stop();
+        }
+    }
 }
