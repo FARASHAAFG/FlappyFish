@@ -8,7 +8,7 @@ import greenfoot.*;
 public class Vlobster extends Actor
 {
     private long time = System.currentTimeMillis();
-    private int speed = Greenfoot.getRandomNumber(4)+1;
+    private int speed = Greenfoot.getRandomNumber(3)+1;
     public Vlobster(){
         turn(Greenfoot.getRandomNumber(360));
     }
@@ -19,7 +19,7 @@ public class Vlobster extends Actor
     {
         move();
         eat();
-        remove();
+        //remove();
     }
     public void move(){
         setLocation(getX() - speed, getY());
@@ -33,10 +33,10 @@ public class Vlobster extends Actor
             /* Greenfoot.playSound("gameOverArcade.mp3");*/
         }
     }
-    public void remove(){
+    /*public void remove(){
           if (isAtEdge()){
         getWorld().removeObject(this);
     }
-    }
+    }*/
 }
 
