@@ -7,7 +7,7 @@ import greenfoot.*;
  */
 public class StartScreen extends World
 {
-
+    GreenfootSound sound = new GreenfootSound("river_mastered.mp3");
     /**
      * Constructor for objects of class StartScreen.
      */
@@ -17,6 +17,7 @@ public class StartScreen extends World
         GreenfootImage bg = new GreenfootImage("StartScreen.png");
         setBackground(bg);
         prepare();
+        sound.play();
     }
     
     /**
@@ -33,16 +34,9 @@ public class StartScreen extends World
     }
     public void act()
     {
-    if (Greenfoot.mouseClicked(null)) {
-        Actor clicked = Greenfoot.getMouseInfo().getActor();
-        if (clicked instanceof Button) {
-            Button btn = (Button) clicked;
-            if (btn.getImage().getAwtImage().toString().contains("PlayButton")) {
-                Greenfoot.setWorld(new LevelScreen());
-            } else if (btn.getImage().getAwtImage().toString().contains("Tutorial")) {
-                Greenfoot.setWorld(new TutorialScreen());
-            }
-        }
+    
     }
+    public void stopMusic(){
+        sound.stop();
     }
 }

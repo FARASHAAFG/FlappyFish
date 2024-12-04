@@ -6,11 +6,11 @@ import greenfoot.*;
 /**
  * 
  */
-public class TutorialButtonHighlighted extends Button
+public class UI extends Actor
 {
 
     /**
-     * Act - do whatever the TutorialButtonHighlighted wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the UI wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {

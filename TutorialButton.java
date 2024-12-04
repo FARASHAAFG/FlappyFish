@@ -21,6 +21,7 @@ public class TutorialButton extends Button
         }
         if (Greenfoot.mouseClicked(this)) {
             Greenfoot.setWorld( new  TutorialScreen());
+            Greenfoot.playSound("vgmenuselect.wav");
         }
     }
 }
