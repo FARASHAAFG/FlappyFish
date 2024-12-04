@@ -16,7 +16,7 @@ public class GoldF extends Actor
     {
         
         move();
-        
+        eatCoin();
 
     }
 
@@ -40,6 +40,14 @@ public class GoldF extends Actor
         this.size = size;
         GreenfootImage image = getImage();
         image.scale(size, size);
+    }
+    public void eatCoin(){
+        Actor coin = getOneIntersectingObject(Coin.class);
+        if (coin != null) {
+            World world = getWorld();
+            world.removeObject(coin);
+            Greenfoot.playSound("completetask_0.mp3");
+        }
     }
 
 }

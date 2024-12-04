@@ -8,19 +8,23 @@ import greenfoot.*;
 public class Level1Screen extends World
 {
     GreenfootSound sound = new GreenfootSound("leap.WAV");
-    private long lastSpawnTime = System.currentTimeMillis();
-    private int spawnDelay = getRandomDelay();
+    private long vlobsterLastSpawnTime = System.currentTimeMillis();
+    private int vlobsterSpawnDelay = 3000 + Greenfoot.getRandomNumber(4000);
+    
+    private long coinLastSpawnTime = System.currentTimeMillis();
+    private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
     /**
-     * Constructor for objects of class LevelScreen.
+     * Constructor for objects of class Game.
      */
     public Level1Screen()
     {
-        super(600, 450, 1);
+        super(600,450,1);
         prepare();
-        //sound.play();
+        sound.play();
     }
     public void act(){
         spawnVlobster();
+        spawnCoin();
     }
 
     /**
@@ -110,14 +114,22 @@ public class Level1Screen extends World
     }
     public void spawnVlobster() {
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastSpawnTime >= spawnDelay) { 
+        if (currentTime - vlobsterLastSpawnTime >= vlobsterSpawnDelay) { 
             addObject(new Vlobster(), 600, Greenfoot.getRandomNumber(195) + 150);
             
-            lastSpawnTime = currentTime;
-            spawnDelay = getRandomDelay();
+            vlobsterLastSpawnTime = currentTime;
+            vlobsterSpawnDelay = vlobsterSpawnDelay;
         }
     }
-    private int getRandomDelay() {
-        return 3000 + Greenfoot.getRandomNumber(4000);
+
+    public void spawnCoin(){
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - coinLastSpawnTime >= CoinSpawnDelay) { 
+            addObject(new Coin(), 600, Greenfoot.getRandomNumber(200) + 150);
+            
+            coinLastSpawnTime = currentTime;
+            CoinSpawnDelay = CoinSpawnDelay;
+        }
     }
+
 }

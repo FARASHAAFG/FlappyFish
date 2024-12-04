@@ -9,13 +9,17 @@ public class Level2Screen extends World
 {
     GreenfootSound sound = new GreenfootSound("leap.WAV");
     /**
-     * Constructor for objects of class LevelScreen.
+     * Constructor for objects of class Game.
      */
     public Level2Screen()
     {
-        super(600, 450, 1);
+        super(600,450,1);
         prepare();
         //sound.play();
+    }
+    public void act(){
+        spawnVlobster();
+        spawnCoin();
     }
 
     /**
@@ -102,5 +106,28 @@ public class Level2Screen extends World
         superSmallWeed31.setLocation(592, 422);
         Seaweed seaweed =  new  Seaweed();
         addObject(seaweed, 495, 394);
+    }
+    public void spawnVlobster() {
+        long lastSpawnTime = System.currentTimeMillis();
+        int spawnDelay = 3000 + Greenfoot.getRandomNumber(4000);
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastSpawnTime >= spawnDelay) { 
+            addObject(new Vlobster(), 600, Greenfoot.getRandomNumber(195) + 150);
+            
+            lastSpawnTime = currentTime;
+            spawnDelay = spawnDelay;
+        }
+    }
+
+    public void spawnCoin(){
+        long lastSpawnTime = System.currentTimeMillis();
+        int spawnDelay = Greenfoot.getRandomNumber(3000)+2000;
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastSpawnTime >= spawnDelay) { 
+            addObject(new Coin(), 600, Greenfoot.getRandomNumber(300) + 150);
+            
+            lastSpawnTime = currentTime;
+            spawnDelay = spawnDelay;
+        }
     }
 }

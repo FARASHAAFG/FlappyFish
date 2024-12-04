@@ -31,9 +31,8 @@ public class PlayButton extends Button
                 StartScreen startScreen = (StartScreen) getWorld();
                 startScreen.stopMusic();
             }
-            
+            Greenfoot.playSound("vgmenuselect (1).wav");
             Greenfoot.setWorld(new Level1Screen()); 
-            Greenfoot.playSound("vgmenuselect.wav");
         }
     }
 }
