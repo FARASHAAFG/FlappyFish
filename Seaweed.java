@@ -37,7 +37,11 @@ public class Seaweed extends Actor
         if (fish != null) {
             World world = getWorld();
             world.removeObject(fish);
+            transitionToWorld(new GameOver());
             /* Greenfoot.playSound("gameOverArcade.mp3");*/
         }
+    }
+    public void transitionToWorld(World newWorld) {
+        Greenfoot.setWorld(newWorld);
     }
 }

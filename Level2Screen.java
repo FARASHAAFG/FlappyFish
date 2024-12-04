@@ -106,7 +106,10 @@ public class Level2Screen extends World
         superSmallWeed31.setLocation(592, 422);
         Seaweed seaweed =  new  Seaweed();
         addObject(seaweed, 495, 394);
+        Level1Goal level1Goal = new Level1Goal();
+        addObject(level1Goal,58,25);
     }
+
     public void spawnVlobster() {
         long lastSpawnTime = System.currentTimeMillis();
         int spawnDelay = 3000 + Greenfoot.getRandomNumber(4000);

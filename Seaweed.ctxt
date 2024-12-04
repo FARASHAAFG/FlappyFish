@@ -10,4 +10,6 @@ comment2.text=\r\n\ \r\n
 comment3.params=
 comment3.target=void\ eat()
 comment3.text=\r\n\ \r\n
-numComments=4
+comment4.params=newWorld
+comment4.target=void\ transitionToWorld(greenfoot.World)
+numComments=5
