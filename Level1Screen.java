@@ -2,9 +2,6 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
 public class Level1Screen extends World
 {
     //GreenfootSound sound = new GreenfootSound("leap.WAV");
@@ -60,11 +57,6 @@ public class Level1Screen extends World
         
         exit();
     }
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         GoldF goldF =  new  GoldF();
@@ -180,6 +172,7 @@ public class Level1Screen extends World
     private void levelCleared() {
         addObject(new LevelCleared(), 300, 225);
         addObject(new NextLevelButton(),293, 326 );
+        addObject(new text(), 440, 261);
     }
     
 }
