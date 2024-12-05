@@ -8,6 +8,14 @@ import greenfoot.*;
 public class Level3Screen extends World
 {
     //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    private long fishermanLastSpawnTime = System.currentTimeMillis();
+    private int fishermanSpawnDelay = 10000 + Greenfoot.getRandomNumber(10000);
+    
+    
+    
+    private int passedFisherman = 0;
+    
+    public boolean goalAchieved = false;
     /**
      * Constructor for objects of class Game.
      */
@@ -19,6 +27,7 @@ public class Level3Screen extends World
     }
     public void act(){
         spawnVlobster();
+        spawnFisherman();
         spawnCoin();
     }
 
@@ -121,6 +130,21 @@ public class Level3Screen extends World
             spawnDelay = spawnDelay;
         }
     }
+    
+    public void spawnFisherman()
+    {
+        //long lastSpawnTime = System.currentTimeMillis();
+        //int spawnDelay = 5000 + Greenfoot.getRandomNumber(10000);
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - fishermanLastSpawnTime >= fishermanSpawnDelay) { 
+            addObject(new Fisherman(), 600, Greenfoot.getRandomNumber(10) + 40);
+            addObject(new Hook(),600, 40);
+            
+            fishermanLastSpawnTime = currentTime;
+            fishermanSpawnDelay = fishermanSpawnDelay;
+        }
+    }
+
 
     public void spawnCoin(){
         long lastSpawnTime = System.currentTimeMillis();
