@@ -21,7 +21,7 @@ public class Vlobster extends Actor
     public void act()
     {
         move();
-        //eat();
+        eat();
         //remove();
     }
     public void move(){

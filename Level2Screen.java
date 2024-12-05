@@ -4,7 +4,7 @@ import greenfoot.*;
 
 public class Level2Screen extends World
 {
-    //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    GreenfootSound sound = new GreenfootSound("leap.WAV");
     private long vlobsterLastSpawnTime = System.currentTimeMillis();
     private int vlobsterSpawnDelay = 2000 + Greenfoot.getRandomNumber(7000);
     
@@ -29,7 +29,7 @@ public class Level2Screen extends World
     {
         super(600,450,1);
         prepare();
-        //sound.play();
+        sound.play();
     }
     public void act(){
         
@@ -193,7 +193,7 @@ public class Level2Screen extends World
     public void exit(){
         if(Greenfoot.isKeyDown("escape")){
             Greenfoot.setWorld(new StartScreen());
-            //sound.stop();
+            sound.stop();
         }
     }
     
@@ -201,12 +201,13 @@ public class Level2Screen extends World
     private void levelCleared() {
         addObject(new LevelCleared(), 300, 225);
         addObject(nextButton,293, 326 );
-        addObject(new text(), 440, 261);
+        //addObject(new text(), 440, 261);
     }
     
     private void transitionToNextLevel(){
         if(Greenfoot.mouseClicked(nextButton)) {
             Greenfoot.setWorld(new Level3Screen());
+            sound.stop();
         }
     }
     

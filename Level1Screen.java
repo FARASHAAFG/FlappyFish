@@ -4,7 +4,7 @@ import greenfoot.*;
 
 public class Level1Screen extends World
 {
-    //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    GreenfootSound sound = new GreenfootSound("leap.WAV");
     private long vlobsterLastSpawnTime = System.currentTimeMillis();
     private int vlobsterSpawnDelay = 3000 + Greenfoot.getRandomNumber(4000);
     
@@ -25,7 +25,7 @@ public class Level1Screen extends World
     {
         super(600,450,1);
         prepare();
-        //sound.play();
+        sound.play();
     }
     public void act(){
         Color yellow = new Color(66,227,255);
@@ -35,9 +35,6 @@ public class Level1Screen extends World
         getBackground().setFont(new Font(32));
         getBackground().drawString(passedVlobsters + "/5 vlobsters", 120,35);
         
-        //goalText = new GreenfootImage(passedVlobsters + "/5 vlobsters", 35, Color.BLACK, new Color(0,0,0,0));
-        //getBackground().drawImage(goalText, 120, 6);
-        //goalText.clear();
         List<Vlobster> vlobsters = getObjects(Vlobster.class);
         for (Vlobster vlobster : vlobsters) {
             if (vlobster.getX() <= 0) { 
@@ -167,20 +164,21 @@ public class Level1Screen extends World
     public void exit(){
         if(Greenfoot.isKeyDown("escape")){
             Greenfoot.setWorld(new StartScreen());
-            //sound.stop();
+            sound.stop();
         }
     }
     
     
     private void levelCleared() {
         addObject(new LevelCleared(), 300, 225);
-        addObject(new NextLevelButton(),293, 326 );
-        addObject(new text(), 440, 261);
+        addObject(nextButton,293, 326 );
+        //addObject(new text(), 440, 261);
     }
     
-    private void transitionToNextLevel(){
+    public void transitionToNextLevel(){
         if(Greenfoot.mouseClicked(nextButton)) {
-            Greenfoot.setWorld(new Level3Screen());
+            Greenfoot.setWorld(new Level2Screen());
+            sound.stop();
         }
     }
     

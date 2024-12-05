@@ -4,12 +4,12 @@ import greenfoot.*;
 
 public class Level3Screen extends World
 {
-    //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    GreenfootSound sound = new GreenfootSound("leap.WAV");
     private long vlobsterLastSpawnTime = System.currentTimeMillis();
-    private int vlobsterSpawnDelay = 2000 + Greenfoot.getRandomNumber(7000);
+    private int vlobsterSpawnDelay = 5000 + Greenfoot.getRandomNumber(5000);
     
     private long sharkLastSpawnTime = System.currentTimeMillis();
-    private int sharkSpawnDelay = 3000 + Greenfoot.getRandomNumber(7000);
+    private int sharkSpawnDelay = Greenfoot.getRandomNumber(7000);
     
     private long coinLastSpawnTime = System.currentTimeMillis();
     private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
@@ -33,17 +33,17 @@ public class Level3Screen extends World
     {
         super(600,450,1);
         prepare();
-        //sound.play();
+        sound.play();
     }
     public void act(){
         
         //vlobster
         Color yellow = new Color(66,227,255);
         getBackground().setColor(yellow);
-        getBackground().fillRect(0, 0, 500, 45);
+        getBackground().fillRect(0, 0, 550, 45);
         getBackground().setColor(Color.BLACK);
         getBackground().setFont(new Font(25));
-        getBackground().drawString(passedVlobsters + "/3 vlobsters " + passedSharks + "/2 sharks" + Hook.passedFisherman + " /1 fisherman" , 120,35);
+        getBackground().drawString(passedVlobsters + "/3 vlobsters " + passedSharks + "/2 sharks " + Hook.passedFisherman + "/1 fisherman" , 120,35);
         
         List<Vlobster> vlobsters = getObjects(Vlobster.class);
         for (Vlobster vlobster : vlobsters) {
@@ -62,25 +62,47 @@ public class Level3Screen extends World
             }
         }
         
+        //fisherman
+        List<Fisherman> fishermen = getObjects(Fisherman.class);
+        for (Fisherman fisherman : fishermen) {
+            if (fisherman.getX() <= 0) { 
+                passedSharks++;
+                removeObject(fisherman);
+            }
+        }
         
         if (!goalAchieved && passedVlobsters >= 3 && passedSharks >= 2 && Hook.passedFisherman >= 1) {
             goalAchieved = true;
-            levelCleared();
+            gameCleared();
+            
+            for (Vlobster vlobster : vlobsters) {
+                removeObject(vlobster);
+            }
+            
+            for (Shark shark : sharks) {
+                removeObject(shark);
+            }
+            
+            for (Fisherman fisherman : fishermen) {
+                removeObject(fisherman);
+            }
+            
         }
         
         if (!goalAchieved) {
-            spawnVlobster();
             if(Greenfoot.getRandomNumber(100)< 5){
+                spawnVlobster();
+            }
+            if(Greenfoot.getRandomNumber(1000)< 15){
                 spawnShark();
-                if(Greenfoot.getRandomNumber(100)<5){
+            }
+            if(Greenfoot.getRandomNumber(100)<3){
                     spawnFisherman();
                 }
-            }
             spawnCoin();
         }
         
         exit();
-        transitionToNextLevel();
     }
     private void prepare()
     {
@@ -200,22 +222,18 @@ public class Level3Screen extends World
     public void exit(){
         if(Greenfoot.isKeyDown("escape")){
             Greenfoot.setWorld(new StartScreen());
-            //sound.stop();
+            sound.stop();
         }
     }
     
     
-    private void levelCleared() {
-        addObject(new LevelCleared(), 300, 225);
-        addObject(nextButton,293, 326 );
-        addObject(new text(), 440, 261);
+    private void gameCleared() {
+        addObject(new GameCleared(), 300, 225);
+        //addObject(nextButton,293, 326 );
+        //addObject(new text(), 440, 261);
     }
     
-    private void transitionToNextLevel(){
-        if(Greenfoot.mouseClicked(nextButton)) {
-            Greenfoot.setWorld(new Level2Screen());
-        }
-    }
+
      public void spawnFisherman(){
         long lastSpawnTime = System.currentTimeMillis();
         int spawnDelay = 5000 + Greenfoot.getRandomNumber(10000);

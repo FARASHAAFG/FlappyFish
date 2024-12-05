@@ -14,7 +14,7 @@ public class Shark extends Actor
     public void act()
     {
         move();
-        //eat();
+        eat();
     }
 
     public void move()
