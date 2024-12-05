@@ -31,7 +31,7 @@ public class NextLevelButton extends Button
         if (Greenfoot.mouseClicked(this))
         {
             Greenfoot.playSound("vgmenuselect (1).wav");
-            Greenfoot.setWorld(new Level2Screen()); 
+
         }
     }
 }

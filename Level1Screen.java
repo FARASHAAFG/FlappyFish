@@ -16,6 +16,8 @@ public class Level1Screen extends World
     private GreenfootImage goalText;
     
     private int passedVlobsters = 0;
+    
+    NextLevelButton nextButton = new NextLevelButton();
     /**
      * Constructor for objects of class Game.
      */
@@ -56,6 +58,7 @@ public class Level1Screen extends World
         }
         
         exit();
+        transitionToNextLevel();
     }
     private void prepare()
     {
@@ -173,6 +176,12 @@ public class Level1Screen extends World
         addObject(new LevelCleared(), 300, 225);
         addObject(new NextLevelButton(),293, 326 );
         addObject(new text(), 440, 261);
+    }
+    
+    private void transitionToNextLevel(){
+        if(Greenfoot.mouseClicked(nextButton)) {
+            Greenfoot.setWorld(new Level3Screen());
+        }
     }
     
 }

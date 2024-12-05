@@ -2,12 +2,26 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
 public class Level2Screen extends World
 {
     //GreenfootSound sound = new GreenfootSound("leap.WAV");
+    private long vlobsterLastSpawnTime = System.currentTimeMillis();
+    private int vlobsterSpawnDelay = 2000 + Greenfoot.getRandomNumber(7000);
+    
+    private long sharkLastSpawnTime = System.currentTimeMillis();
+    private int sharkSpawnDelay = 3000 + Greenfoot.getRandomNumber(7000);
+    
+    private long coinLastSpawnTime = System.currentTimeMillis();
+    private int CoinSpawnDelay = Greenfoot.getRandomNumber(3000)+2000;
+    
+    public boolean goalAchieved = false;
+    
+    private GreenfootImage goalText;
+    
+    private int passedVlobsters = 0;
+    private int passedSharks = 0;
+    
+    NextLevelButton nextButton = new NextLevelButton();
     /**
      * Constructor for objects of class Game.
      */
@@ -18,14 +32,49 @@ public class Level2Screen extends World
         //sound.play();
     }
     public void act(){
-        spawnVlobster();
-        spawnCoin();
+        
+        //vlobster
+        Color yellow = new Color(66,227,255);
+        getBackground().setColor(yellow);
+        getBackground().fillRect(0, 0, 500, 45);
+        getBackground().setColor(Color.BLACK);
+        getBackground().setFont(new Font(32));
+        getBackground().drawString(passedVlobsters + "/3 vlobsters " + passedSharks + "/2 sharks", 120,35);
+        
+        List<Vlobster> vlobsters = getObjects(Vlobster.class);
+        for (Vlobster vlobster : vlobsters) {
+            if (vlobster.getX() <= 0) { 
+                passedVlobsters++;
+                removeObject(vlobster);
+            }
+        }
+        
+        //shark
+        List<Shark> sharks = getObjects(Shark.class);
+        for (Shark shark : sharks) {
+            if (shark.getX() <= 0) { 
+                passedSharks++;
+                removeObject(shark);
+            }
+        }
+    
+        
+        if (!goalAchieved && passedVlobsters >= 3 && passedSharks >= 2) {
+            goalAchieved = true;
+            levelCleared();
+        }
+        
+        if (!goalAchieved) {
+            spawnVlobster();
+            if(Greenfoot.getRandomNumber(100)< 5){
+                spawnShark();
+            }
+            spawnCoin();
+        }
+        
+        exit();
+        transitionToNextLevel();
     }
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         GoldF goldF =  new  GoldF();
@@ -106,31 +155,59 @@ public class Level2Screen extends World
         superSmallWeed31.setLocation(592, 422);
         Seaweed seaweed =  new  Seaweed();
         addObject(seaweed, 495, 394);
-        Level1Goal level1Goal = new Level1Goal();
-        addObject(level1Goal,58,25);
-    }
+        Level1Goal goalText = new Level1Goal();
+        addObject(goalText, 60, 23);
 
+    }
     public void spawnVlobster() {
-        long lastSpawnTime = System.currentTimeMillis();
-        int spawnDelay = 3000 + Greenfoot.getRandomNumber(4000);
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastSpawnTime >= spawnDelay) { 
+        
+        if (currentTime - vlobsterLastSpawnTime >= vlobsterSpawnDelay) { 
             addObject(new Vlobster(), 600, Greenfoot.getRandomNumber(195) + 150);
             
-            lastSpawnTime = currentTime;
-            spawnDelay = spawnDelay;
+            vlobsterLastSpawnTime = currentTime;
+            vlobsterSpawnDelay = vlobsterSpawnDelay;
+        }
+    }
+    
+    public void spawnShark(){
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - sharkLastSpawnTime >= sharkSpawnDelay) { 
+            addObject(new Shark(), 600, Greenfoot.getRandomNumber(195) + 150);
+            
+            sharkLastSpawnTime = currentTime;
+            sharkSpawnDelay = sharkSpawnDelay;
         }
     }
 
     public void spawnCoin(){
-        long lastSpawnTime = System.currentTimeMillis();
-        int spawnDelay = Greenfoot.getRandomNumber(3000)+2000;
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastSpawnTime >= spawnDelay) { 
-            addObject(new Coin(), 600, Greenfoot.getRandomNumber(300) + 150);
+        if (currentTime - coinLastSpawnTime >= CoinSpawnDelay) { 
+            addObject(new Coin(), 600, Greenfoot.getRandomNumber(200) + 150);
             
-            lastSpawnTime = currentTime;
-            spawnDelay = spawnDelay;
+            coinLastSpawnTime = currentTime;
+            CoinSpawnDelay = CoinSpawnDelay;
         }
     }
+    
+    public void exit(){
+        if(Greenfoot.isKeyDown("escape")){
+            Greenfoot.setWorld(new StartScreen());
+            //sound.stop();
+        }
+    }
+    
+    
+    private void levelCleared() {
+        addObject(new LevelCleared(), 300, 225);
+        addObject(nextButton,293, 326 );
+        addObject(new text(), 440, 261);
+    }
+    
+    private void transitionToNextLevel(){
+        if(Greenfoot.mouseClicked(nextButton)) {
+            Greenfoot.setWorld(new Level3Screen());
+        }
+    }
+    
 }

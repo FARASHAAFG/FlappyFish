@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Level2Screen
-comment0.text=\r\n\ \r\n
 comment1.params=
 comment1.target=Level2Screen()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Game.\r\n
@@ -8,9 +7,16 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ prepare()
-comment3.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
 comment4.params=
 comment4.target=void\ spawnVlobster()
 comment5.params=
-comment5.target=void\ spawnCoin()
-numComments=6
+comment5.target=void\ spawnShark()
+comment6.params=
+comment6.target=void\ spawnCoin()
+comment7.params=
+comment7.target=void\ exit()
+comment8.params=
+comment8.target=void\ levelCleared()
+comment9.params=
+comment9.target=void\ transitionToNextLevel()
+numComments=10
