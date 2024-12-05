@@ -6,4 +6,6 @@ comment2.params=
 comment2.target=void\ updatePositionWithFisherman()
 comment3.params=
 comment3.target=void\ catching()
-numComments=4
+comment4.params=newWorld
+comment4.target=void\ transitionToWorld(greenfoot.World)
+numComments=5

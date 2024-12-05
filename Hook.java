@@ -1,8 +1,10 @@
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
+
 public class Hook extends Actor
 {
+    static int passedFisherman = 0;
     public void act()
     {
         updatePositionWithFisherman();
@@ -16,8 +18,9 @@ public class Hook extends Actor
             Fisherman fisherman = fishermen.get(0);
             setLocation(fisherman.getX(), fisherman.getY() + 125);
             if (isAtEdge()) {
-                // Reset hook or remove fisherman as per game logic
-                setLocation(fisherman.getX(), fisherman.getY()); // Example: Reset
+                // Reset hook
+                setLocation(fisherman.getX(), fisherman.getY());
+                passedFisherman++;
             }
         }
     }
@@ -27,7 +30,13 @@ public class Hook extends Actor
         Actor fish = getOneIntersectingObject(GoldF.class);
         if (fish != null) {
             getWorld().removeObject(fish);
+            World world = getWorld();
+            world.removeObject(fish);
+            transitionToWorld(new GameOver());
             // Greenfoot.playSound("gameOverArcade.mp3"); // Uncomment if sound is needed
         }
+    }
+    public void transitionToWorld(World newWorld) {
+        Greenfoot.setWorld(newWorld);
     }
 }
