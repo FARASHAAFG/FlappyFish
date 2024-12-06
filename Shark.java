@@ -39,7 +39,7 @@ public class Shark extends Actor
             World world = getWorld();
             world.removeObject(fish);
             transitionToWorld(new GameOver());
-            /* Greenfoot.playSound("gameOverArcade.mp3");*/
+            Greenfoot.playSound("gameover.wav");
         }
     }
     public void remove(){

@@ -33,7 +33,7 @@ public class Hook extends Actor
             World world = getWorld();
             world.removeObject(fish);
             transitionToWorld(new GameOver());
-            // Greenfoot.playSound("gameOverArcade.mp3"); // Uncomment if sound is needed
+            Greenfoot.playSound("gameover.wav");
         }
     }
     public void transitionToWorld(World newWorld) {

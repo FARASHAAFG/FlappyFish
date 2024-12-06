@@ -34,7 +34,7 @@ public class SmallWeed extends Actor
             World world = getWorld();
             world.removeObject(fish);
             transitionToWorld(new GameOver());
-            /* Greenfoot.playSound("gameOverArcade.mp3");*/
+            Greenfoot.playSound("gameover.wav");
         }
     }
     public void transitionToWorld(World newWorld) {
